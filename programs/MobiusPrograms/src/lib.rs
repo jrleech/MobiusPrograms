@@ -12,7 +12,13 @@ pub mod LosslessContribution {
 
 
     }
-
+    /**
+    * Description: This function takes in deposit amount and transfers a deposit into an account
+    * Pre: amount > 0
+    * Post: Deposit is successfully deposited into correct account
+    * Returns: void (Message confirms success)
+    * // To Add: Feature to check deposit account is correct and exists
+    **/
     pub fn deposit(ctx: Context<Deposit>, amount: u64, nonce: u8> -> Result<()> {
             
         let contributor = &mut ctx.accounts.contributor;
@@ -22,7 +28,13 @@ pub mod LosslessContribution {
             msg!("Successfully Deposited: {}", ctx.accounts.token_vault.amount);
         Ok(())
     }
-
+    /**
+    * Description: This function takes in contribution amount and transfers a contribution into a fundraising account
+    * Pre: amount > 0
+    * Post: Deposit is successfully deposited into correct fundrasier
+    * Returns: void (Message confirms success)
+    * // To Add: Feature to check fundraising account is correct and exists
+    **/
     pub fn contribute(ctx: Context<contribute>, amount: u64, nonce: u8) -> Result<()> {
 
         let fundraiser = &mut ctx.accounts.fundraiser;
